@@ -14,13 +14,14 @@ class BirdsController < ApplicationController
   def show
     bird = Bird.find_by(id: params[:id])
     # adding if else statement to handle error message for invalid endpoints
-    if bird
-      render json: { id: bird.id, name: bird.name, species: bird.species }
-    else
-    # redid this to render only relevant elements
-    # render json: bird
-      render json: {id: bird.id, name: bird.name, species: bird.species }
-    # or could use
-    # render json: bird.slice(:id, :name, :species)
-  end
+      if bird
+        render json: { id: bird.id, name: bird.name, species: bird.species }
+      else
+      # redid this to render only relevant elements
+      # render json: bird
+        render json: {id: bird.id, name: bird.name, species: bird.species }
+      # or could use
+      # render json: bird.slice(:id, :name, :species)
+      end
+    end
 end
